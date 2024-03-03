@@ -20,8 +20,11 @@ class BirthdayController extends AbstractController
      */
     public function index(BirthdayRepository $birthdayRepository): Response
     {
+        $limit = 40;
+        $birthdays = $birthdayRepository->findBy([], [], $limit);
+
         return $this->render('birthday/index.html.twig', [
-            'birthdays' => $birthdayRepository->findAll(),
+            'birthdays' => $birthdays,
         ]);
     }
 
