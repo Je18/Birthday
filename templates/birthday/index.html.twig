@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Birthday{% endblock %}
+
+{% block body %}
+    <h1>Liste des anniversaires</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for birthday in birthdays %}
+            <tr>
+                <td>{{ birthday.id }}</td>
+                <td>{{ birthday.nom }}</td>
+                <td>{{ birthday.prenom }}</td>
+                <td>{{ birthday.date ? birthday.date|date('d/m/Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_birthday_show', {'id': birthday.id}) }}">Consulter</a>
+                    <a href="{{ path('app_birthday_edit', {'id': birthday.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun anniversaires</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_birthday_new') }}">Ajouter un nouvel anniversaire</a>
+{% endblock %}

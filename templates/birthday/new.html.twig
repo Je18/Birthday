@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un nouvel anniversaire</h1>
+
+    {{ include('birthday/_form.html.twig') }}
+
+    <a href="{{ path('app_birthday_index') }}">Retour à la liste</a>
+{% endblock %}
