@@ -4,6 +4,7 @@
 
 {% block body %}
     <h1>Liste des anniversaires</h1>
+    <button onclick="window.location='{{ path('app_birthday_new') }}'">Ajouter un nouvel anniversaire</button>
 
     <table class="table">
         <thead>
@@ -35,5 +36,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_birthday_new') }}">Ajouter un nouvel anniversaire</a>
 {% endblock %}
